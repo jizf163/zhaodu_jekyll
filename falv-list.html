@@ -1,0 +1,48 @@
+---
+layout: default
+title: 法律法规
+---
+
+<div style="width: 100%">
+    <img style="width:100%" src="/assets/images/banner01.jpg" alt="">
+</div>
+<div class="container">
+    <h2>{{page.title}}</h2>
+    <ol class="breadcrumb">
+        <li><a href="/">首页</a></li>
+        <li class="active">{{page.title}}</li>
+    </ol>
+
+    <div class="row">
+        <div class="col-md-9">
+            <div class="">
+                <div class="row">
+                    {% for item in site.falv %}
+
+                    <div class="list-boxes">
+                        <h2>
+                            <a href="{{item.url}}">{{item.title}}</a>
+                        </h2>
+                        <p>{{item.des}}</p>
+                        <div>
+
+                            <a class="btn btn-warning btn-sm pull-right"
+                               href="{{item.url}}">查看更多</a>
+                        </div>
+                    </div>
+                    
+                    {% endfor %}
+                </div>
+            </div>
+            <ul class="pagination">
+                <page/>
+            </ul>
+        </div>
+        <div class="col-md-3">
+            {% include nav_about.html %}
+        </div>
+    </div>
+</div>
+
+
+

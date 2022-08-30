@@ -1,0 +1,49 @@
+---
+layout: default
+title: 服务领域
+---
+
+<div style="width: 100%">
+    <img style="width:100%" src="/assets/images/banner01.jpg" alt="">
+</div>
+<div class="container">
+    <h2>{{page.title}}</h2>
+    <ol class="breadcrumb">
+        <li><a href="/">首页</a></li>
+        <li class="active">{{page.title}}</li>
+    </ol>
+
+    <div class="row">
+        <div class="col-md-9">
+            <div class="">
+                <div class="row">
+                    {% for item in site.fuwu %}
+                    
+                    <div class="col-md-6 animated hover_" style="padding: 10px;" data-in="flipInX">
+                        <a href="{{item.url}}">
+                            <div style=" padding:0 10px 10px 10px; border: 1px solid #CCCCCC; height: 120px; overflow: hidden;">
+                                <h4 style="line-height: 30px;">
+                                    {{item.title}}
+                                </h4>
+                                <p style="line-height: 30px;">{{item.des}}</p>
+                            </div>
+                        </a>
+                    </div>
+
+
+
+                  
+                    {% endfor %}
+                </div>
+            </div>
+            <ul class="pagination">
+                <page/>
+            </ul>
+        </div>
+        <div class="col-md-3">
+            {% include nav_about.html %}
+        </div>
+    </div>
+</div>
+
+

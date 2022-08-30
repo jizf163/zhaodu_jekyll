@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% include head.html %}
+    <style>
+        .caption-wraper {
+            position: absolute;
+            left: 50%;
+            bottom: 2em;
+        }
+
+        .caption-wraper .caption {
+            position: relative;
+            left: -50%;
+            background-color: rgba(0, 0, 0, 0.54);
+            padding: 0.4em 1em;
+            color: #fff;
+            -webkit-border-radius: 1.2em;
+            -moz-border-radius: 1.2em;
+            -ms-border-radius: 1.2em;
+            -o-border-radius: 1.2em;
+            border-radius: 1.2em;
+        }
+
+        .tc-gridbox {
+            margin: 0;
+        }
+
+        @media (max-width: 767px) {
+            .caption-wraper {
+                left: 0;
+                bottom: 0.4em;
+            }
+
+            .caption-wraper .caption {
+                left: 0;
+                padding: 0.2em 0.4em;
+                font-size: 0.92em;
+                -webkit-border-radius: 0;
+                -moz-border-radius: 0;
+                -ms-border-radius: 0;
+                -o-border-radius: 0;
+                border-radius: 0;
+            }
+        }
+
+    </style>
+</head>
+<body class="body-white">
+{% include nav.html%}
+<div id="mycarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#mycarousel" data-slide-to="1"></li>
+      <li data-target="#mycarousel" data-slide-to="2"></li>
+    </ol>
+  
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="/assets/images/silder/0.jpg" alt="...">
+        <div class="carousel-caption">
+          {{site.company}}
+        </div>
+      </div>
+      <div class="item">
+        <img src="/assets/images/silder/1.jpg" alt="...">
+        <div class="carousel-caption">
+            {{site.company}}
+        </div>
+      </div>
+      <div class="item">
+        <img src="/assets/images/silder/2.jpg" alt="...">
+        <div class="carousel-caption">
+            {{site.company}}
+        </div>
+      </div>
+    </div>
+  
+    <!-- Controls -->
+    <a class="left carousel-control" href="#mycarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#mycarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+
+<div style=" background-color: #DCE6EE; margin-top: 10px;">
+    <div class="container" >
+
+        <div class="row">
+            <div class="col-md-8  animated slideInLeft" style="padding-top: 30px; line-height: 40px;">
+                <h3><strong>走进{{site.company}}</strong></h3>
+                <p class="lead"> </p>
+                <div style="text-indent:28px">
+                    {{site.com_detail}}  
+                </div>
+            
+
+            </div>
+            <div class="col-md-4">
+                <img class="img-rounded img-responsive animated slideInRight" src="/assets/images/company.jpg" style="margin: 10px; " />
+                <img class="img-rounded img-responsive animated slideInRight" src="/assets/images/2.jpg" style="margin: 10px; "  />
+                <img class="img-rounded img-responsive animated slideInRight" src="/assets/images/3.jpg" style="margin: 10px; " />
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<div class="container" style="margin-top: 20px;margin-bottom: 20px;">
+    <div>
+        <button class="btn btn-warning  animated slideInLeft" type="button">
+            案例分享 <span class="badge">9</span>
+        </button>
+    </div>
+    <div class="row">
+        {% for anli in site.anlis %}
+        <div class="col-md-4" style="padding: 10px;">
+            <a class="thumbnail"  href="{{anli.url}}">
+                <img class="animated hover_" data-in="bounceIn" src="{{anli.pic}}" style="with:100%">
+            </a>
+
+            <div style=" padding-top: 0px;" class="animated hover_ row" data-in="shake">
+                <a class="col-md-10" href="{:cmf_url('portal/Article/index',array('id'=>$vo['post_id'],'cid'=>2))}" >{{anli.name}}</a>
+                <p class="text-right col-md-2"><span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></p>
+            </div>
+
+
+        </div>
+    
+        {% endfor %}
+    </div>
+
+
+</div>
+
+<div class="footer">
+    <div class="container">
+        {% include footer.html %}
+    </div>
+</div>
+
+<!-- /container -->
+<include file="public@scripts"/>
+<script src="/assets/js/slippry.min.js"></script>
+<script>
+    $(function () {
+        $("#home-slider").slippry({
+            transition: 'fade',
+            useCSS: true,
+            captions: false,
+            speed: 1000,
+            pause: 3000,
+            auto: true,
+            preload: 'visible'
+        });
+        $("#home-slider").show();
+    });
+
+
+</script>
+<hook name="before_body_end"/>
+</body>
+</html>

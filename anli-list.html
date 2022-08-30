@@ -1,0 +1,45 @@
+---
+layout: default
+title: 经典案例
+isactive: active
+---
+
+<div style="width: 100%">
+    <img style="width:100%" src="/assets/images/banner01.jpg" alt="">
+</div>
+<div class="container">
+    <h2>{{page.title}}</h2>
+    <ol class="breadcrumb">
+        <li><a href="/">首页</a></li>
+        <li class="active">{{page.title}}</li>
+    </ol>
+
+    <div class="row">
+        <div class="col-md-9">
+            <div class="">
+                <div class="row">
+                    {% for anli in site.anlis %}
+                    <div class="col-md-4" style="padding: 10px;">
+                        <a class="thumbnail"  href="{{anli.url}}">
+                            <img class="animated hover_" data-in="bounceIn" src="{{anli.pic}}" style="with:100%">
+                        </a>
+                        <div style=" padding-top: 0px;" class="animated hover_ row" data-in="shake">
+                            <a class="col-md-10" href="{{anli.url}}" >{{anli.title}}</a>
+                            <p class="text-right col-md-2"><span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <ul class="pagination">
+                <page/>
+            </ul>
+        </div>
+        <div class="col-md-3">
+            {% include nav_about.html %}
+        </div>
+    </div>
+</div>
+
+
+
