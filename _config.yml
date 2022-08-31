@@ -17,3 +17,7 @@ collections:
    name: 服务领域
    output: true
  
+detach:  false
+#port:    4000
+#host:    192.168.88.101
+baseurl: "zhaodu_jekyll" # does not include hostname
