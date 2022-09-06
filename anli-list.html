@@ -5,12 +5,12 @@ isactive: active
 ---
 
 <div style="width: 100%">
-    <img style="width:100%" src="/assets/images/banner01.jpg" alt="">
+    <img style="width:100%" src="{{site.baseurl}}/assets/images/banner01.jpg" alt="">
 </div>
 <div class="container">
     <h2>{{page.title}}</h2>
     <ol class="breadcrumb">
-        <li><a href="/">首页</a></li>
+        <li><a href="{{site.baseurl}}/">首页</a></li>
         <li class="active">{{page.title}}</li>
     </ol>
 
@@ -20,11 +20,11 @@ isactive: active
                 <div class="row">
                     {% for anli in site.anlis %}
                     <div class="col-md-4" style="padding: 10px;">
-                        <a class="thumbnail"  href="{{anli.url}}">
-                            <img class="animated hover_" data-in="bounceIn" src="{{anli.pic}}" style="with:100%">
+                        <a class="thumbnail"  href="{{site.baseurl}}{{anli.url}}">
+                            <img class="animated hover_" data-in="bounceIn" src="{{site.baseurl}}{{anli.pic}}" style="with:100%">
                         </a>
                         <div style=" padding-top: 0px;" class="animated hover_ row" data-in="shake">
-                            <a class="col-md-10" href="{{anli.url}}" >{{anli.title}}</a>
+                            <a class="col-md-10" href="{{site.baseurl}}{{anli.url}}" >{{anli.title}}</a>
                             <p class="text-right col-md-2"><span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></p>
                         </div>
                     </div>
